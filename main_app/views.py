@@ -8,3 +8,9 @@ def home(request):
 
 def about(request):
     return render(request, 'about.html')
+
+def users_profile(request, user_id=id):
+    user = User.objects.get(id=user_id)
+    context = {'user': user}
+    return render(request, 'users/profile.html', context)
+
