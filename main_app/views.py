@@ -5,10 +5,11 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 
 from .models import User, Profile, City, Post
+
 # Create your views here.
 
 def home(request):
-    return HttpResponse('<h1> We out hurr</h1>')
+    return render(request, 'home.html')
 
 def about(request):
     return render(request, 'about.html')
