@@ -1,0 +1,80 @@
+#nav_home {
+    background-color: #d92027;
+}
+
+#logo_text{
+    margin: 10px 20px;
+    display: inline;
+}
+
+#sign_up {
+    margin: 10px 20px;
+    right: 10px;
+    display: inline;
+    position: relative;
+}
+
+#log_in {
+    margin: 10px 20px;
+    right: 10px;
+    display: inline;
+    position: relative;
+}
+
+#profile {
+    margin: 10px 20px;
+    right: 10px;
+    display: inline;
+    position: relative;
+}
+
+a {
+    color: inherit;
+}
+
+a :hover {
+    text-decoration: underline;
+    color: inherit;
+}
+
+#logo-image {
+    height: 75px;
+}
+
+#image-box {
+    border-color: #ff9234;
+    border-width: thin;
+}
+
+/* external css: flickity.css */
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  body { font-family: sans-serif; }
+  
+  .gallery {
+    background: #EEE;
+  }
+  
+  .gallery-cell {
+    width: 66%;
+    height: 200px;
+    margin-right: 10px;
+    background: #8C8;
+    counter-increment: gallery-cell;
+  }
+  
+  /* cell number */
+  .gallery-cell:before {
+    display: block;
+    text-align: center;
+    content: counter(gallery-cell);
+    line-height: 200px;
+    font-size: 80px;
+    color: white;
+  }
+  
+  
