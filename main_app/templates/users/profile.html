@@ -15,8 +15,12 @@
 
         </ul>
     </div>
-    
 </aside>
+<section>
+    {% for post in posts  %}
+        {% include '../partials/posts.html'%}
+    {% endfor %}
+</section>
 
 
 {% endblock %}

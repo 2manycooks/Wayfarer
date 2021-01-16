@@ -1,16 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="ui menu" id="home_upper_nav"> 
-        <img src="main_app/assets/icons/wf_icon.png" alt="WF_Icon">
-        <h1>Wayfarer</h1>
-        <h1 id="log_in"> Log In</h1>
-        <h1 id="sign_up">Sign Up</h1>
-        <h1 id="profile">Profile</h1>
-    
-    
-    </div>
-    <h1 class="ui divided header">About Wayfarer:</h1>
-    
 
+    <!-- Flickity HTML init -->
+    <div class="carousel"
+    data-flickity='{ "imagesLoaded": true, "percentPosition": false, "wrapAround": true }'>
+        <img src="../static/images/cities/vintage-sydney.jpeg" alt="vintage sydney" />
+        <img src="../static/images/cities/vintage-sf.jpeg" alt="vintage sf" />
+        <img src="../static/images/cities/vintage-seattle.jpeg" alt="vintage seattle" />
+        <img src='../static/images/cities/vintage-london.jpeg' alt="vintage london">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg" alt="cat nose" />
+    </div>
+
+    <div id="home-bottom-header">Wayfarer is:</div>
+    
 {% endblock  %}
