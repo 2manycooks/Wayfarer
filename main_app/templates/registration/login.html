@@ -2,24 +2,22 @@
 {% block content %} 
 
 <body class="body-login-page">
-    <h1>Log in</h1>
-        <div class="ui container">
-            <div class="ui modal">
-                <i class="close icon"></i> 
-                    <div class ="header">
-                    Login
-                    </div> 
-                <div class="content">
-                    <form method="POST" action="{% url 'login' %}">
-                    {%  csrf_token %} {{ form.as_p }}
-                    <input type="submit" class="btn"
-                    value="login">
-                    <input type="hidden" name="next" value="{{next}}" />
-                    </form>
-                </div>
+    <div class="ui container">
+        <div class="ui modal">
+            <i class="close icon"></i> 
+                <div class ="header">
+                Login
+                </div> 
+            <div class="content">
+                <form method="POST" action="{% url 'login' %}">
+                {%  csrf_token %} {{ form.as_p }}
+                <input type="submit" class="btn"
+                value="login">
+                <input type="hidden" name="next" value="{{next}}" />
+                </form>
             </div>
         </div>
-
+    </div>
     <script>
         $('.ui.modal').modal('show');
     </script> 

@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h1>Sign up</h1>
+{% comment %} <h1>Sign up</h1>
 
   {% if error %}
     <p style="background-color: firebrick;">{{error}}</p>
@@ -14,6 +14,31 @@
       <input type="submit" class="btn" value="signup"/> 
       <input type="hidden" name="next" value="{{ next }}" />
     </form>
-  </section>
+  </section> {% endcomment %}
 
+<body class="body-signup-page">
+        <div class="ui container">
+            <div class="ui modal">
+                <i class="close icon"></i> 
+                    <div class ="header">
+                    Sign Up
+                    </div> 
+                    {% if error %}
+                      <p style="background-color: firebrick;">{{error}}</p>
+                    {% endif %}
+
+                    <section class="form-section">
+                        <form method="POST" action="{% url 'signup' %}" class="form">
+                            {% csrf_token %} {{ form.as_p }}
+                            <input type="submit" class="btn" value="signup"/> 
+                            <input type="hidden" name="next" value="{{ next }}" />
+                        </form>
+                    </section>                
+            </div>
+        </div>
+
+    <script>
+        $('.ui.modal').modal('show');
+    </script> 
+</body>
 {% endblock %}

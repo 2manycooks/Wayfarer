@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth import authenticate, logout, login as dj_login
 from django.contrib.auth.forms import UserCreationForm, forms, AuthenticationForm
 from .forms import NewUserForm
 from django.contrib.auth.decorators import login_required
@@ -29,8 +29,8 @@ def signup(request):
         form = NewUserForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)
-            return redirect('')
+            dj_login(request, user)
+            return redirect('users/<int:user_id>/')
         else:
             error_message = 'Invalid sign up - try again'
     form = NewUserForm()
@@ -58,5 +58,5 @@ def login(request):
                   context={'form':form})
 
 def logout(request):
-    logout(request)
-    return render(request, 'registration/signup.html')
+    return render(request, 'registration/logout.html')
+

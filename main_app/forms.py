@@ -20,10 +20,3 @@ class NewUserForm(UserCreationForm):
         if commit:
             user.save()
         return user
-
-# class login(forms.Form):
-#     username = forms.CharField(label=_("Username"), max_length=30)
-#     password = forms.CharField(label=_("Password"), widget=forms.PasswordInput)
-#     class Meta:
-#         model = User
-#         fields = ("username", "password1", "password2")
