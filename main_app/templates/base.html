@@ -34,13 +34,5 @@
     {% endblock %}
   </main>
   <script src="{% static 'flickity/flickity.pkgd.min.js' %}"></script>
-  {% comment %} <!-- Login Form -->
-  <h2>Login</h2>
-  <form method='POST' action="{% url 'login' %}"">
-    {% csrf_token %}
-    {{ sign_in.as_p }}
-    <input type="submit"></input>
-  </form> {% endcomment %}
-
 </body>
 </html>
