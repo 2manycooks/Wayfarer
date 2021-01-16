@@ -125,3 +125,5 @@ LOGIN_REDIRECT_URL = ''
 
 # Logout Redirect
 LOGOUT_REDIRECT_URL = '/accounts/login'
+
+SIGNIN_REDIRECT_URL = ''
