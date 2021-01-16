@@ -3,12 +3,12 @@
 
 <body class="body-login-page">
     <h1>Log in</h1>
-    {% comment %} <div class="ui container">
-        <div class="ui modal">
-            <i class="close icon"></i> 
-                <div class ="header">
-                    Hello!
-                </div> {% endcomment %}
+        <div class="ui container">
+            <div class="ui modal">
+                <i class="close icon"></i> 
+                    <div class ="header">
+                    Login
+                    </div> 
                 <div class="content">
                     <form method="POST" action="{% url 'login' %}">
                     {%  csrf_token %} {{ form.as_p }}
@@ -17,11 +17,12 @@
                     <input type="hidden" name="next" value="{{next}}" />
                     </form>
                 </div>
-        {% comment %} </div>
-    </div>
+            </div>
+        </div>
+
     <script>
         $('.ui.modal').modal('show');
-    </script> {% endcomment %}
+    </script> 
 </body>
 
 {% endblock %}
