@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %} 
+
+<h1>Log in</h1>
+
+<div class="ui modal">
+    <form method="POST" action="{% url 'login' %}">
+        {%  csrf_token %} {{ forms.as_p }}
+        <input type="submit" class="btn"
+        value="login">
+        <input type="hidden" name="next" value="{{next}}" />
+    </form>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+$(document).on('click', '#detail', function(){
+    $('.ui.modal').modal('show');
+});
+})
+
+</script>
+{% endblock %}

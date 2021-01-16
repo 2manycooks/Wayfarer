@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main_app',
-    'register.apps.RegisterConfig'
 ]
 
 MIDDLEWARE = [
@@ -122,4 +121,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # Login Redirect
-LOGIN_REDIRECT_URL = '/accounts/login'
+LOGIN_REDIRECT_URL = ''
+
+# Logout Redirect
+LOGOUT_REDIRECT_URL = '/accounts/login'
