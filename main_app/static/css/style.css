@@ -3,29 +3,24 @@
 }
 
 #logo_text{
-    margin: 10px 20px;
+    margin: 20px;
     display: inline;
 }
 
 #sign_up {
-    margin: 10px 20px;
-    right: 10px;
-    display: inline;
-    position: relative;
+    margin-top: 20px;
+    margin-right: 10px;
+    
 }
 
 #log_in {
-    margin: 10px 20px;
-    right: 10px;
-    display: inline;
-    position: relative;
+    margin-top: 20px;
+    margin-right: 10px;
 }
 
 #profile {
-    margin: 10px 20px;
-    right: 10px;
-    display: inline;
-    position: relative;
+    margin-top: 20px;
+    margin-right: 10px;
 }
 
 a {
