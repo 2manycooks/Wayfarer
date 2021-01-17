@@ -8,9 +8,10 @@
                 <div class ="header">
                 Login
                 </div> 
-            <div class="content">
+            <div class="ui.form">
                 <form method="POST" action="{% url 'login' %}">
-                {%  csrf_token %} {{ form.as_p }}
+                {%  csrf_token %} 
+                {{ form.as_p }}
                 <input type="submit" class="btn"
                 value="login">
                 <input type="hidden" name="next" value="{{next}}" />
