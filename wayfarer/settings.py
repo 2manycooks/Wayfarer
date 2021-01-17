@@ -132,4 +132,4 @@ LOGIN_REDIRECT_URL = '/users'
 # Logout Redirect
 LOGOUT_REDIRECT_URL = '/accounts/logout'
 
-SIGNUP_REDIRECT_URL = ''
+SIGNUP_REDIRECT_URL = '/users'

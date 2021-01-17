@@ -31,7 +31,8 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             dj_login(request, user)
-            return redirect('users/<int:user_id>/')
+            id =request.user.id 
+            return redirect('users/')
         else:
             error_message = 'Invalid sign up - try again'
     form = NewUserForm()
