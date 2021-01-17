@@ -15,8 +15,9 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
-def users_profile(request, user_id=id):
-    user = User.objects.get(id=user_id)
+def users_profile(request):  #don't need to pass id
+    user = User.objects.get(id=request.user.id)
+    # user = User.objects.get(id=user_id)
     posts = Post.objects.filter(user=user)
     context = {'user': user, 'posts': posts}
     return render(request, 'users/profile.html', context)

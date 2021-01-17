@@ -121,7 +121,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # Login Redirect
-LOGIN_REDIRECT_URL = '/users/1/'
+LOGIN_REDIRECT_URL = '/users/'
 
 # Logout Redirect
 LOGOUT_REDIRECT_URL = '/accounts/logout'
