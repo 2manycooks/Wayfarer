@@ -1,5 +1,6 @@
 from django.forms import ModelForm
-from .models import Post, User
+from django.contrib.auth.models import User
+from .models import Post, Profile
 from django.contrib.auth.forms import UserCreationForm, forms
 
 
@@ -19,4 +20,4 @@ class NewUserForm(UserCreationForm):
         user.email = self.cleaned_data["email"]
         if commit:
             user.save()
-        return user
+        return user, user_profile
