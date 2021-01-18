@@ -38,7 +38,12 @@
     </div>
     {% block content %}
     {% endblock %}
+    
   </main>
   <script src="{% static 'flickity/flickity.pkgd.min.js' %}"></script>
+    {% comment %} Login Modal {% endcomment %}
+    {% include 'registration/login.html' %}
+    {% comment %} Signup Modal {% endcomment %}
+    {% include 'registration/signup.html' %}
 </body>
 </html>

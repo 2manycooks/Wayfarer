@@ -141,13 +141,20 @@ https://flickity.metafizzy.co
 * { box-sizing: border-box; }
 
 .carousel {
+  display: flex;
   background: #EEE;
 }
 
-.carousel img {
+.carousel-cell {
+  width: 100vw; /* full width */
+  height: 160px; /* height of carousel */
+}
+
+/* .carousel img {
   display: block;
   height: 200px;
-}
+} */
+
 
 @media screen and ( min-width: 768px ) {
   .carousel img {
