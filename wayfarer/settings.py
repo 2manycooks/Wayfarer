@@ -64,6 +64,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'main_app.context_processors.include_login_form',
+                'main_app.context_processors.include_signup_form',
             ],
         },
     },
@@ -126,12 +128,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = 'images/profile/' 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-#Signup Redirect
-SIGNUP_REDIRECT_URL = '/users'
-
 # Login Redirect
 LOGIN_REDIRECT_URL = '/users'
 
 # Logout Redirect
-LOGOUT_REDIRECT_URL = '/accounts/logout'
-
+LOGOUT_REDIRECT_URL = '/'
