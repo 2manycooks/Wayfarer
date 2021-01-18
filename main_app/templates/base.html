@@ -8,6 +8,7 @@
     <title>Wayfarer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href= "{% static 'flickity/flickity.css' %}" media="screen">
 </head>
@@ -20,20 +21,20 @@
         <div class="left item">
             <h1 id="logo_text">Wayfarer</h1>
         </div>
-        <div class="right item">
-            {% if user.is_authenticated %}
-                <div class="ui action input">
-                <input type="text" placeholder="Search...">
-                </div>
-                <a href=""><h1 id="profile">Profile</h1></a>
-                <a href=""><h1 id="logout">Log Out</h1></a>
-            {% else %}
-                <input type="text" placeholder="Search...">
-                </div>
-                <a href=""><h1 id="log_in">Log In</h1></a>
-                <a href=""><h1 id="sign_up">Sign Up</h1></a>
-            {% endif %}
-        </div>
+        
+        {% if user.is_authenticated %}
+            <div class="right item">
+                <a href="{% url 'profile' %}"><h1 id="profile">Profile</h1></a>
+                <a href="{% url 'logout' %}"><h1 id="logout">Log Out</h1></a>
+            </div>
+        {% else %}
+            <div class="right item">
+                <h1 id="log_in">Log In</h1>
+                <h1 id="sign_up">Sign Up</h1>
+            
+            </div>
+        {% endif %}
+        
     </div>
     {% block content %}
     {% endblock %}

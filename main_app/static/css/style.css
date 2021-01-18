@@ -8,13 +8,12 @@
 }
 
 #sign_up {
-    margin-top: 20px;
-    margin-right: 10px;
+    margin: 0 auto;
     
 }
 
 #log_in {
-    margin-top: 20px;
+    margin: 0 auto;
     margin-right: 10px;
 }
 
@@ -72,4 +71,9 @@ a :hover {
     font-size: 80px;
     color: white;
   }
+  
+  /* #ui_modal {
+      display: none;
+  } */
+
   

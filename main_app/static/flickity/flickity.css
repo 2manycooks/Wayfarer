@@ -154,3 +154,10 @@ https://flickity.metafizzy.co
     height: 400px;
   }
 }
+
+.carousel-cell {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

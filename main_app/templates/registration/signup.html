@@ -1,0 +1,29 @@
+<body class="body-signup-page">
+        <div class="ui container">
+            <div class="ui modal" id='signup_modal'>
+                <i class="close icon"></i> 
+                    <div class ="header">
+                    Sign Up
+                    </div> 
+                    {% if error %}
+                      <p style="background-color: firebrick;">{{error}}</p>
+                    {% endif %}
+
+                    <section class="form-section">
+                        <form method="POST" action="{% url 'home' %}" class="form">
+                            {% csrf_token %} {{ form.as_p }}
+                            <input type="submit" class="btn" value="signup"/> 
+                            <input type="hidden" name="next" value="{{ next }}" />
+                        </form>
+                    </section>                
+            </div>
+        </div>
+
+     <script type="text/javascript">
+     $(document).ready(function(){
+     $('#sign_up').click(function(){
+        $('#signup_modal').modal('show');    
+     });
+     });
+     </script>
+</body>

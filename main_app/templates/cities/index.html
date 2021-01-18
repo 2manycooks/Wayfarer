@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <aside>
+        <h1>Cities</h1>
+        {% for city in cities %}
+            <div>
+                <img src="{{ city.image }}" alt="{{ city.name }}">
+                <p>{{ city.name }} </p>
+            </div>
+        {% endfor %}
+    </aside>
+    <section>
+        <div>
+            <h1>{{ selected_city.name }}</h1>
+            <h3>{{ selected_city.country }}</h3>
+            <img src="{{ selected_city.image}}" alt="">
+        </div>
+        <div>
+            <h1>Posts</h1>
+            <p>+</p>
+            <section>
+                {% for post in selected_city.posts %}
+                    {% include '../partials/posts.html' %}
+                {% endfor %}
+            </section>
+        </div>
+    </section>
+    <div>
+        <form action="{% url 'post_create' selected_city.id %}" method='POST'>
+            {% csrf_token %}
+            {{ post_form.as_p }}
+            <input type="submit" value="Post" class="btn">
+        </form>
+    </div>
+{% endblock  %}
+
+
