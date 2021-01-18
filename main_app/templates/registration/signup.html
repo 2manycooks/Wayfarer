@@ -10,8 +10,8 @@
                     {% endif %}
 
                     <section class="form-section">
-                        <form method="POST" action="{% url 'home' %}" class="form">
-                            {% csrf_token %} {{ form.as_p }}
+                        <form method="POST" action="{% url 'signup' %}" class="form">
+                            {% csrf_token %} {{ signup_form.as_p }}
                             <input type="submit" class="btn" value="signup"/> 
                             <input type="hidden" name="next" value="{{ next }}" />
                         </form>

@@ -12,42 +12,7 @@ from .models import User, Profile, City, Post
 # Create your views here.
 
 def home(request):
-
-    error_message = ''
-    if request.method == 'POST':
-        form = NewUserForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)
-            id =request.user.id 
-            return redirect('users/')
-        else:
-            error_message = 'Invalid sign up - try again'
-    form = NewUserForm()
-    context = {'form': form, 'error_message': error_message}
-    return render(request, 'home.html', context)
-    
-    # if request.method == 'POST':
-    #     form = AuthenticationForm(request=request,data=request.POST)
-    #     if form.is_valid():
-    #         username = form.cleaned_data.get('username')
-    #         password = form.cleaned_data.get('password')
-    #         user = authenticate(username=username,password=password)
-    #         if user is not None:
-    #             login(request, user)
-    #             messages.info(request, f"You are now logged in as {username}")
-    #             return redirect('/users')
-    #         else:
-    #             messages.error(request, "Invalid username or password.")
-    #             return redirect('/login_failure')
-
-    #     else:
-    #         messages.error(request, "Invalid username or password.")
-    #         return redirect('/login_failure')
-    # form = AuthenticationForm()
-    # return render(request = request,
-    #               template_name = "home.html",
-    #               context={'form':form})
+    return render(request, 'home.html')
 
 def about(request):
     return render(request, 'about.html')
@@ -59,22 +24,24 @@ def users_profile(request):  #don't need to pass id
     context = {'user': user, 'posts': posts}
     return render(request, 'users/profile.html', context)
 
+
+
 # === User Routes
 
-# def signup(request):
-#     error_message = ''
-#     if request.method == 'POST':
-#         form = NewUserForm(request.POST)
-#         if form.is_valid():
-#             user = form.save()
-#             dj_login(request, user)
-#             id =request.user.id 
-#             return redirect('users/')
-#         else:
-#             error_message = 'Invalid sign up - try again'
-#     form = NewUserForm()
-#     context = {'form': form, 'error_message': error_message}
-#     return render(request, 'registration/signup.html', context)
+def signup(request):
+    error_message = ''
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('profile')
+        else:
+            error_message = 'Invalid sign up - try again'
+    # A GET or bad POST request, renders empty form
+    form = UserCreationForm()
+    context = {'form': form, 'error_message': error_message}
+    return redirect(request, 'home', context)
 
 def login_failure(request):
     if request.method == 'POST':
@@ -97,7 +64,3 @@ def login_failure(request):
     return render(request = request,
                   template_name = "registration/login_failure.html",
                   context={'form': form})
-
-def logout(request):
-    return render(request, 'registration/logout.html')
-
