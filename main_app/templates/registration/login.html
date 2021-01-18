@@ -1,27 +1,32 @@
-{% extends 'base.html' %}
-{% block content %} 
-
 <body class="body-login-page">
     <div class="ui container">
-        <div class="ui modal">
-            <i class="close icon"></i> 
+        <div class="ui modal" id="ui_modal">
+            <i class="close icon"></i>
+                {% block error %} 
+                
+                {% endblock %}
                 <div class ="header">
                 Login
                 </div> 
-            <div class="ui.form">
-                <form method="POST" action="{% url 'login' %}">
-                {%  csrf_token %} 
-                {{ form.as_p }}
+
+              
+
+            <div class="form">
+                <form method="POST" action="{% url 'home' %}">
+                {%  csrf_token %} {{ form.as_p }}
                 <input type="submit" class="btn"
                 value="login">
-                <input type="hidden" name="next" value="{{next}}" />
+                <input type="hidden" name="next" value="{{next}}" />          
+           
                 </form>
             </div>
         </div>
     </div>
-    <script>
-        $('.ui.modal').modal('show');
-    </script> 
+    <script type="text/javascript">
+     $(document).ready(function(){
+     $('#log_in').click(function(){
+        $('#ui_modal').modal('show');    
+     });
+     });
+     </script>
 </body>
-
-{% endblock %}
