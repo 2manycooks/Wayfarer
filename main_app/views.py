@@ -64,7 +64,3 @@ def login_failure(request):
     return render(request = request,
                   template_name = "registration/login_failure.html",
                   context={'form': form})
-
-def logout(request):
-    return render(request, 'registration/logout.html')
-

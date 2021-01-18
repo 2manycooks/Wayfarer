@@ -2,22 +2,22 @@
 {% block content %}
 
     <!-- Flickity HTML init -->
-    <div class="carousel" data-flickity='{ "imagesLoaded": true, "percentPosition": true, "wrapAround": true }'>
+    <div class="carousel" data-flickity='{ "imagesLoaded": true, "percentPosition": false, "wrapAround": true }'>
         <div class="carousel-cell" >
-        <img src="../static/images/cities/vintage-sydney.jpeg" alt="vintage sydney" />
+            <img src="../static/images/cities/vintage-sydney.jpeg" alt="vintage sydney" />
         </div>
         <div class="carousel-cell">
-        <img src="../static/images/cities/vintage-sf.jpeg" alt="vintage sf" />
+            <img src="../static/images/cities/vintage-sf.jpeg" alt="vintage sf" />
         </div>
         <div class="carousel-cell">
-        <img src="../static/images/cities/vintage-seattle.jpeg" alt="vintage seattle" />
+            <img src="../static/images/cities/vintage-seattle.jpeg" alt="vintage seattle" />
         </div>
         <div class="carousel-cell">
-        <img src='../static/images/cities/vintage-london.jpeg' alt="vintage london">
+            <img src='../static/images/cities/vintage-london.jpeg' alt="vintage london">
         </div>
     </div>
 
-    <div id="home-bottom-header">Wayfarer is:</div>
+
 
 {% comment %} Login Modal {% endcomment %}
 {% comment %} {% include 'registration/login.html' %} {% endcomment %}

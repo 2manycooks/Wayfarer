@@ -136,19 +136,16 @@ https://flickity.metafizzy.co
   opacity: 1;
 }
 
-
-
-* { box-sizing: border-box; }
-
 .carousel {
-  display: flex;
   background: #EEE;
 }
 
 .carousel-cell {
-  width: 100vw; /* full width */
-  height: 160px; /* height of carousel */
-}
+  width: 100vw; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} 
 
 /* .carousel img {
   display: block;
@@ -159,5 +156,7 @@ https://flickity.metafizzy.co
 @media screen and ( min-width: 768px ) {
   .carousel img {
     height: 400px;
+    z-index: 2;
   }
 }
+
