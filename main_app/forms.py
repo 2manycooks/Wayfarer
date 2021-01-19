@@ -21,10 +21,14 @@ class NewUserForm(UserCreationForm):
         if commit:
             user.save()
         return user, user_profile
+      
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('username',)
 
-class EditProfileForm(UserChangeForm):   
+class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ("current_city", "favorite_city")
-    
+        fields = ('current_city', 'favorite_city')
         

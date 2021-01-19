@@ -1,14 +1,18 @@
 
 <article>
     <aside>
-        <img src="{{ post.image }}" alt="{{ post.title }}_image" />
+        {% if post.image %}
+            <img src='{{post.image.url}}' />
+        {% else %}
+            <img src="/static/images/post/default-thumbnail.png" alt="" width='100px'>
+        {% endif %}
     </aside>
     <section>
         <div>
             <p>{{ post.user.username }}</p>
             <p>{{ post.city.name }}</p>
         </div>
-        <p>{{ post.title }}</p>
+        <p><a href="{% url 'show_post' post.id %}">{{ post.title }}</a></p>
         <p>{{ post.content }}</p>
     </section>
     <section>
