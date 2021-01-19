@@ -136,21 +136,27 @@ https://flickity.metafizzy.co
   opacity: 1;
 }
 
-
-
-* { box-sizing: border-box; }
-
 .carousel {
   background: #EEE;
 }
 
-.carousel img {
+.carousel-cell {
+  width: 100vw; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} 
+
+/* .carousel img {
   display: block;
   height: 200px;
-}
+} */
+
 
 @media screen and ( min-width: 768px ) {
   .carousel img {
     height: 400px;
+    z-index: 2;
   }
 }
+

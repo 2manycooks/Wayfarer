@@ -1,24 +1,6 @@
-{% extends 'base.html' %}
-
-{% block content %}
-
-{% comment %} <h1>Sign up</h1>
-
-  {% if error %}
-    <p style="background-color: firebrick;">{{error}}</p>
-  {% endif %}
-
-  <section class="form-section">
-    <form method="POST" action="{% url 'signup' %}" class="form">
-      {% csrf_token %} {{ form.as_p }}
-      <input type="submit" class="btn" value="signup"/> 
-      <input type="hidden" name="next" value="{{ next }}" />
-    </form>
-  </section> {% endcomment %}
-
 <body class="body-signup-page">
         <div class="ui container">
-            <div class="ui modal">
+            <div class="ui modal" id='signup_modal'>
                 <i class="close icon"></i> 
                     <div class ="header">
                     Sign Up
@@ -29,7 +11,7 @@
 
                     <section class="form-section">
                         <form method="POST" action="{% url 'signup' %}" class="form">
-                            {% csrf_token %} {{ form.as_p }}
+                            {% csrf_token %} {{ signup_form.as_p }}
                             <input type="submit" class="btn" value="signup"/> 
                             <input type="hidden" name="next" value="{{ next }}" />
                         </form>
@@ -37,8 +19,11 @@
             </div>
         </div>
 
-    <script>
-        $('.ui.modal').modal('show');
-    </script> 
+     <script type="text/javascript">
+     $(document).ready(function(){
+     $('#sign_up').click(function(){
+        $('#signup_modal').modal('show');    
+     });
+     });
+     </script>
 </body>
-{% endblock %}

@@ -21,19 +21,29 @@
         <div class="left item">
             <h1 id="logo_text">Wayfarer</h1>
         </div>
-        <div class="right item">
-            {% if user.is_authenticated %}
+        
+        {% if user.is_authenticated %}
+            <div class="right item">
                 <a href="{% url 'profile' %}"><h1 id="profile">Profile</h1></a>
                 <a href="{% url 'logout' %}"><h1 id="logout">Log Out</h1></a>
-            {% else %}
+            </div>
+        {% else %}
+            <div class="right item">
                 <h1 id="log_in">Log In</h1>
-                <a href="{% url 'signup' %}"><h1 id="sign_up">Sign Up</h1></a>
-            {% endif %}
-        </div>
+                <h1 id="sign_up">Sign Up</h1>
+            
+            </div>
+        {% endif %}
+        
     </div>
     {% block content %}
     {% endblock %}
+    
   </main>
   <script src="{% static 'flickity/flickity.pkgd.min.js' %}"></script>
+    {% comment %} Login Modal {% endcomment %}
+    {% include 'registration/login.html' %}
+    {% comment %} Signup Modal {% endcomment %}
+    {% include 'registration/signup.html' %}
 </body>
 </html>
