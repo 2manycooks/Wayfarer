@@ -64,7 +64,6 @@ def login_failure(request):
     return render(request = request,
                   template_name = "registration/login_failure.html",
                   context={'form': form})
-
 def users_edit(request):
     # get request vs post request
     # post
