@@ -8,12 +8,4 @@ urlpatterns = [
     path('login_failure/', views.login_failure, name='login_failure'),
     path('account/signup', views.signup, name='signup'),
     path('posts/<int:post_id>', views.show_post, name='show_post'),
-<<<<<<< HEAD
-    path('users/edit', views.users_edit, name='users_edit'),
-    # path('users/delete', views.users_delete, name='users_delete'),
-   
-=======
-    path('users/edit', views.update_profile, name='update_profile'),
-    # path('users/delete', views.users_delete, name='users_delete'),
->>>>>>> submaster
-] 
+    ] 
