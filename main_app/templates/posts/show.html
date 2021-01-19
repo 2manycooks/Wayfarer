@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<article>
+<div>
+<img src='{{post.image.url}}' />
+</div>
+
+<details>
+<section>
+<p>{{post.user.username}}</p>
+<p>{{post.city}}</p>
+</section>
+
+<section>
+<p>{{post.title}}</p>
+</section>
+
+<section>
+<p>{{post.content}}</p>
+</section>
+<aside>
+<p>
+<a href=''>
+<button class='ui primary button'>Edit</button>
+</a>
+</p>
+</aside>
+</details>
+
+</article>
+
+
+
+{% endblock %}

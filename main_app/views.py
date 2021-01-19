@@ -64,3 +64,9 @@ def login_failure(request):
     return render(request = request,
                   template_name = "registration/login_failure.html",
                   context={'form': form})
+
+def show_post(request, post_id):
+    post = Post.objects.get(id=post_id)
+    # user = User.objects.get(id=post.user.id)
+    context = {'post': post}
+    return render(request, 'posts/show.html', context)
