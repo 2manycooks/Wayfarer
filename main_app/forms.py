@@ -24,7 +24,7 @@ class NewUserForm(UserCreationForm):
 
 class EditProfileForm(UserChangeForm):   
     class Meta:
-        model = User
-        fields = ("username",)
+        model = Profile
+        fields = ("current_city", "favorite_city")
     
         
