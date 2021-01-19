@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, logout, login 
-from django.contrib.auth.forms import UserCreationForm, forms, AuthenticationForm
-from .forms import NewUserForm
+from django.contrib.auth.forms import UserCreationForm, forms, AuthenticationForm, UserChangeForm
+from .forms import NewUserForm, ProfileForm, UserForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
@@ -17,7 +17,9 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
-def users_profile(request):  #don't need to pass id
+# === User Profile Routes
+
+def users_profile(request):  
     user = User.objects.get(id=request.user.id)
     # user = User.objects.get(id=user_id)
     posts = Post.objects.filter(user=user)
@@ -25,8 +27,23 @@ def users_profile(request):  #don't need to pass id
     return render(request, 'users/profile.html', context)
 
 
+def update_profile(request):
+    if request.method == 'POST':
+        user_form = UserForm(request.POST, instance=request.user)
+        profile_form = ProfileForm(request.POST, instance=request.user.profile)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, ('Your profile was successfully updated!'))
+            return redirect('profile')
+        else:
+            messages.error(request, ('Please correct the error below.'))
+    else:
+        user_form = UserForm(instance=request.user)
+        profile_form = ProfileForm(instance=request.user.profile)
+    return render(request, 'users/edit.html', {'user_form': user_form, 'profile_form': profile_form})
 
-# === User Routes
+# === Signup Routes
 
 def signup(request):
     error_message = ''
@@ -64,3 +81,22 @@ def login_failure(request):
     return render(request = request,
                   template_name = "registration/login_failure.html",
                   context={'form': form})
+# def users_edit(request):
+#     # get request vs post request
+#     # post
+#     if request.method == 'POST':
+#         form = EditProfileForm(request.POST, instance=request.user)
+
+#         if form.is_valid():
+#             form.save()
+#             return redirect('/users')
+#     # get method   
+#     else:
+#         form = EditProfileForm(instance=request.user)
+#         context = { 'form': form }
+#         return render(request, 'users/edit.html', context)
+
+def show_post(request, post_id):
+    post = Post.objects.get(id=post_id)
+    context = {'post': post}
+    return render(request, 'posts/show.html', context)

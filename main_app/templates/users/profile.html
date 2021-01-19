@@ -2,17 +2,20 @@
 
 <aside class="profile_sidebar">
     <div class="profile_image">
-        <img src="{{ user.profile.image }} " alt="profile_image" width="240"/>
+        {% if user.profile.image %}
+            <img src="{{ user.profile.image.url }} " alt="profile_image" width="240"/>
+        {% else %}
+            <img src="/static/images/profile/default_profile.png" alt="default_image" width="240"/>
+        {% endif %}
     </div>
     <div>
         <h1>{{ user.username }}</h1>
     </div>
     <div>
         <ul>
-            <p>{{ user.profile.favorite_city }}<p>
-            <p>{{ user.profile.current_city }}<p>
-            <p>{{ user.date_joined }}<p>
-
+            <p id="fav_city">Favorite City: {{ user.profile.favorite_city }}<p>
+            <p id="current_city">Current City: {{ user.profile.current_city }}<p>
+            <p id="join_date">Joined {{ user.date_joined }}<p>
         </ul>
     </div>
 </aside>
@@ -21,6 +24,10 @@
         {% include '../partials/posts.html'%}
     {% endfor %}
 </section>
-
+ <div class="card-action">
+    <a href="{% url 'update_profile' %}" class="edit_btn">
+        <button class="ui primary button">Edit</button>
+    </a>
+</div>
 
 {% endblock %}

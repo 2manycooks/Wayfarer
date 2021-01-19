@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<article>
+    <div>
+        {% if post.image %}
+            <img src='{{post.image.url}}' />
+        {% else %}
+            <img src="/static/images/post/default-thumbnail.png" alt="" width='100px'>
+        {% endif %}
+    </div>
+    <div>
+        <section>
+            <p>{{post.user.username}}</p>
+            <p>{{post.city}}</p>
+        </section>
+
+        <section>
+            <p>{{post.title}}</p>
+        </section>
+
+        <section>
+            <p>{{post.content}}</p>
+        </section>
+        <aside>
+            <p>
+                <a href=''>
+                    <button class='ui primary button'>Edit</button>
+                </a>
+            </p>
+        </aside>
+    </div>
+</article>
+
+
+
+{% endblock %}
