@@ -66,13 +66,15 @@ def login_failure(request):
                   context={'form': form})
 
 def users_edit(request):
+    # get request vs post request
+    # post
     if request.method == 'POST':
         form = EditProfileForm(request.POST, instance=request.user)
 
         if form.is_valid():
             form.save()
             return redirect('/users')
-        
+    # get method   
     else:
         form = EditProfileForm(instance=request.user)
         context = { 'form': form }
