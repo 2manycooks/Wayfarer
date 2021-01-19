@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, logout, login 
-from django.contrib.auth.forms import UserCreationForm, forms, AuthenticationForm
-from .forms import NewUserForm
+from django.contrib.auth.forms import UserCreationForm, forms, AuthenticationForm, UserChangeForm
+from .forms import NewUserForm, EditProfileForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
@@ -64,9 +64,17 @@ def login_failure(request):
     return render(request = request,
                   template_name = "registration/login_failure.html",
                   context={'form': form})
+def users_edit(request):
+    # get request vs post request
+    # post
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, instance=request.user)
 
-def show_post(request, post_id):
-    post = Post.objects.get(id=post_id)
-    # user = User.objects.get(id=post.user.id)
-    context = {'post': post}
-    return render(request, 'posts/show.html', context)
+        if form.is_valid():
+            form.save()
+            return redirect('/users')
+    # get method   
+    else:
+        form = EditProfileForm(instance=request.user)
+        context = { 'form': form }
+        return render(request, 'users/edit.html', context)
