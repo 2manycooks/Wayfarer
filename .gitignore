@@ -226,3 +226,4 @@ dmypy.json
 
 main_app/static/images/profile
 main_app/static/images/post
+main_app/static/images/city
