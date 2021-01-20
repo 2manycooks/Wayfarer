@@ -7,7 +7,7 @@ from django.dispatch import receiver
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     favorite_city = models.CharField(max_length=100, blank=True)
-    image = models.ImageField(upload_to='static/images/profile', blank=True)
+    image = models.ImageField(upload_to='../static/images/profile', blank=True)
     current_city = models.CharField(max_length=100, blank=True)
     updated_at = models.DateTimeField(auto_now=True)
 

@@ -1,4 +1,4 @@
-
+{% comment %} 
 <article>
     <aside>
         {% if post.image %}
@@ -22,4 +22,49 @@
             {% endif %}
         </p>
     </section>
-</article>
+</article> {% endcomment %}
+
+<div class="ui items">
+    <div class="item">
+        <div class="image">
+            {% if post.image %}
+                <img src='{{post.image.url}}' />
+            {% else %}
+                <img src="/static/images/post/default-thumbnail.png" alt="" width='100px'>
+            {% endif %}
+        </div>
+        <div class="content">
+            <div class="header">
+                <p><a href="{% url 'show_post' post.id %}">{{ post.title }}</a></p>
+            </div>
+            <div class="meta">
+                <span>
+                    <p>{{ post.user.username }}</p>
+                    <p>{{ post.city.name }}</p>
+                </span>
+            </div>
+            <div class="description">
+                <p>{{ post.content }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% comment %} <div class="ui items">
+  <div class="item">
+    <div class="image">
+      <img src="/images/wireframe/image.png">
+    </div>
+    <div class="content">
+      <a class="header">Header</a>
+      <div class="meta">
+        <span>Description</span>
+      </div>
+      <div class="description">
+        <p></p>
+      </div>
+      <div class="extra">
+        Additional Details
+      </div>
+    </div>
+  </div> {% endcomment %}

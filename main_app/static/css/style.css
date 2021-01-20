@@ -9,17 +9,26 @@
 
 #sign_up {
     margin: 0 auto;
-    
+    margin-right: 10px;
+    display: inline;
 }
 
 #log_in {
     margin: 0 auto;
     margin-right: 10px;
+    display: inline;
 }
 
 #profile {
-    margin-top: 20px;
+    margin: 0 auto;
     margin-right: 10px;
+    display: inline;
+}
+
+#logout {
+    margin: 0 auto;
+    margin-right: 10px;
+    display: inline;
 }
 
 a {
@@ -40,6 +49,10 @@ a :hover {
     border-width: thin;
 }
 
+#post-detail {
+    display: flex;
+    min-width: 500px;
+}
 
 /* external css: flickity.css */
 
