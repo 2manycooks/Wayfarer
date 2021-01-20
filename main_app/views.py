@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, logout, login 
 from django.contrib.auth.forms import UserCreationForm, forms, AuthenticationForm, UserChangeForm
-from .forms import NewUserForm, ProfileForm, UserForm
+from .forms import NewUserForm, ProfileForm, UserForm, Post_Form
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
@@ -100,3 +100,29 @@ def show_post(request, post_id):
     post = Post.objects.get(id=post_id)
     context = {'post': post}
     return render(request, 'posts/show.html', context)
+
+def post_create(request, city_id):
+    city = City.objects.get(id=city_id)
+    user = User.objects.get(id=request.user.id)
+    if request.method == 'POST':
+        form = Post_Form(request.POST, request.FILES)
+        if form.is_valid():
+            new_post = form.save(commit=False)
+            new_post.city = city
+            new_post.user = user
+            new_post.save()
+            return redirect("city_details", selected_city_id=city_id)
+        else:
+            return messages.error(request, "Invalid username or password.")
+    form = Post_Form()
+    return redirect(request, "city_details", selected_city_id=city_id)
+
+
+def city_details(request, selected_city_id):
+    cities = City.objects.all()
+    selected_city = City.objects.get(id=selected_city_id)
+    posts = Post.objects.filter(city=selected_city)
+    selected_city.posts = posts
+    form = Post_Form()
+    context = {'cities': cities, 'selected_city': selected_city, 'post_form': form}
+    return render(request, 'cities/details.html', context)

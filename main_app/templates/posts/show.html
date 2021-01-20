@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<article>
+{% comment %} <article>
     <div>
         {% if post.image %}
             <img src='{{post.image.url}}' />
@@ -30,8 +30,35 @@
             </p>
         </aside>
     </div>
-</article>
+</article> {% endcomment %}
 
-
+<div class="ui centered card" id="post-detail" style= 'width: 400px; height: 600px' >
+  <div class="image">
+    {% if post.image %}
+        <img src='{{post.image.url}}'/>
+    {% else %}
+        <img src="/static/images/post/default-thumbnail.png" alt="" width='100px'>
+    {% endif %}
+  </div>
+  <div class="content">
+    <a class="header">
+        <p>{{post.title}}</p>
+    </a>
+    <div class="meta">
+        <span class=>
+            <p>{{post.user.username}}</p>
+        </span>
+    </div>
+    <div class="description">
+        <p>{{post.content}}</p>
+    </div>
+  </div>
+  <div class="extra content">
+    <a>
+      <i class="user icon"></i>
+      {{post.city}}
+    </a>
+  </div>
+</div>
 
 {% endblock %}
