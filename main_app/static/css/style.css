@@ -10,22 +10,25 @@
 #sign_up {
     margin: 0 auto;
     margin-right: 10px;
-    
+    display: inline;
 }
 
 #log_in {
     margin: 0 auto;
     margin-right: 10px;
+    display: inline;
 }
 
 #profile {
     margin: 0 auto;
     margin-right: 10px;
+    display: inline;
 }
 
 #logout {
     margin: 0 auto;
     margin-right: 10px;
+    display: inline;
 }
 
 a {
