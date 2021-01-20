@@ -54,6 +54,10 @@ a :hover {
     min-width: 500px;
 }
 
+#post-content {
+    background-color: #35d0ba;
+}
+
 /* external css: flickity.css */
 
 * {

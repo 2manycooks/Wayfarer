@@ -1,38 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
 
-{% comment %} <article>
-    <div>
-        {% if post.image %}
-            <img src='{{post.image.url}}' />
-        {% else %}
-            <img src="/static/images/post/default-thumbnail.png" alt="" width='100px'>
-        {% endif %}
-    </div>
-    <div>
-        <section>
-            <p>{{post.user.username}}</p>
-            <p>{{post.city}}</p>
-        </section>
 
-        <section>
-            <p>{{post.title}}</p>
-        </section>
-
-        <section>
-            <p>{{post.content}}</p>
-        </section>
-        <aside>
-            <p>
-                <a href=''>
-                    <button class='ui primary button'>Edit</button>
-                </a>
-            </p>
-        </aside>
-    </div>
-</article> {% endcomment %}
-
-<div class="ui centered card" id="post-detail" style= 'width: 400px; height: 600px' >
+<div class="ui centered card" id="post-detail" style= 'width: 400px; height: 500px' >
   <div class="image">
     {% if post.image %}
         <img src='{{post.image.url}}'/>
@@ -40,13 +10,13 @@
         <img src="/static/images/post/default-thumbnail.png" alt="" width='100px'>
     {% endif %}
   </div>
-  <div class="content">
+  <div class="content" id="post-content">
     <a class="header">
         <p>{{post.title}}</p>
     </a>
     <div class="meta">
         <span class=>
-            <p>{{post.user.username}}</p>
+            <p> created by {{post.user.username}}</p>
         </span>
     </div>
     <div class="description">
@@ -55,10 +25,35 @@
   </div>
   <div class="extra content">
     <a>
-      <i class="user icon"></i>
+      <i class="compass outline icon"></i>
       {{post.city}}
+    </a>
+    <button class="ui button" id="post-delete-button">
+        Delete
+    </button>
+    <a href="{% url 'edit_post' post.id %}" id="post-edit-button">
+        Edit
     </a>
   </div>
 </div>
+
+<div class="ui modal" id="delete-modal">
+  <div class="header">Are you sure?</div>
+  <div class="content">
+    <p> This action cannot be undone! </p>
+  </div>
+  <div class="actions">
+    <a href="{% url 'delete_post' post.id %}" class="ui approve button">Yes</a>
+    <div class="ui cancel button">Cancel</div>
+  </div>
+</div>
+
+<script type="text/javascript">
+     $(document).ready(function(){
+     $('#post-delete-button').click(function(){
+        $('#delete-modal').modal('show');    
+     });
+     });
+</script>
 
 {% endblock %}
