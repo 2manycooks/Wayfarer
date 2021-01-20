@@ -100,3 +100,7 @@ def show_post(request, post_id):
     post = Post.objects.get(id=post_id)
     context = {'post': post}
     return render(request, 'posts/show.html', context)
+
+def delete_post(request, post_id):
+    Post.get(id=post.id).delete()
+    return redirect('')
