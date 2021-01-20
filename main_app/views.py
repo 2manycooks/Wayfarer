@@ -117,6 +117,22 @@ def post_create(request, city_id):
     form = Post_Form()
     return redirect(request, "city_details", selected_city_id=city_id)
 
+def edit_post(request, post_id):
+    post = Post.objects.get(id=post_id)
+    if request.method == 'POST':
+        post_form = Post_Form(request.POST, request.FILES, instance=post)
+        if post_form.is_valid(): 
+            post_form.save()
+            return redirect('show_post', post_id=post.id)
+
+    post_form = Post_Form(instance=post)
+    context = {'post_form': post_form, 'post': post}
+    return render(request,'posts/edit.html', context)
+
+def delete_post(request, post_id):
+    post = Post.objects.get(id=post_id)
+    post.delete()
+    return redirect("city_details", selected_city_id=post.city.id)
 
 def city_details(request, selected_city_id):
     cities = City.objects.all()
