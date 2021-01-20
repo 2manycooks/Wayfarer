@@ -1,10 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <aside>
+    <aside class="ui primary vertical menu">
         <h1>Cities</h1>
         {% for city in cities %}
-            <div>
+            {% if city.id == selected_city.id %}
+                <a class="active item" >
+            {% else %}
+                <a class="item" href="{% url 'city_details' city.id %}">
+            {% endif %}
                 {% if city.image %}
                     <img src="{{ city.image.url }} " alt="city_image" width='100px'/>
                 {% else %}
@@ -12,47 +16,50 @@
                 {% endif %}
                 {% comment %} <img src="{{ city.image.url }}" alt="{{ city.name }}"> {% endcomment %}
                 <p>{{ city.name }} </p>
-            </div>
+            </a>
         {% endfor %}
     </aside>
-    <section>
-        <div>
-            <h1>{{ selected_city.name }}</h1>
-            <h3>{{ selected_city.country }}</h3>
-            <img src="{{ selected_city.image.url }}" alt="" width="300px">
+    
+        <section class="ui right card">
+            <div>
+                <h1>{{ selected_city.name }}</h1>
+                <h3>{{ selected_city.country }}</h3>
+                <img src="{{ selected_city.image.url }}" alt="" width="300px">
+            </div>
+            <div>
+                <h1>Posts</h1>
+                <h1 id="add-post"><i class='plus circle icon'></i></h1>
+                <section>
+                    {% for post in selected_city.posts %}
+                        {% include '../partials/posts.html' %}
+                    {% endfor %}
+                </section>
+            </div>
+        </section>
+        
+        <div class="ui container">
+            <div class="ui modal" id="new_post">
+                <i class="close icon"></i>
+                {% block error %} 
+                    
+                    {% endblock %}
+                    <div class ="header">
+                        New Post
+                    </div> 
+                    <div class="form">
+                        <form enctype="multipart/form-data" action="{% url 'post_create' selected_city.id %}" method='POST'>
+                        {% csrf_token %}
+                        {{ post_form.as_p }}
+                        <input type="submit" value="Post" class="btn">
+                        </form>
+                    </div>
+            </div>
         </div>
-        <div>
-            <h1>Posts</h1>
-            <h1 id="add-post"><i class='plus circle icon'></i></h1>
-            <section>
-                {% for post in selected_city.posts %}
-                    {% include '../partials/posts.html' %}
-                {% endfor %}
-            </section>
-        </div>
-    </section>
-    <div class="ui container">
-        <div class="ui modal" id="ui_modal">
-            <i class="close icon"></i>
-             {% block error %} 
-                
-                {% endblock %}
-                <div class ="header">
-                    New Post
-                </div> 
-                <div class="form">
-                    <form enctype="multipart/form-data" action="{% url 'post_create' selected_city.id %}" method='POST'>
-                    {% csrf_token %}
-                    {{ post_form.as_p }}
-                    <input type="submit" value="Post" class="btn">
-                    </form>
-                </div>
-        </div>
-    </div>
+    
     <script type="text/javascript">
      $(document).ready(function(){
      $('#add-post').click(function(){
-        $('#ui_modal').modal('show');    
+        $('#new_post').modal('show');    
      });
      });
      </script>
