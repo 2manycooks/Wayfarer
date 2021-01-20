@@ -14,7 +14,7 @@
 </head>
 <body>
   <main>
-    <div class="ui mini menu fixed" id="nav_home">
+    <div class="ui mini menu sticky" id="nav_home">
         <div id="image-box">
             <img src="https://static.thenounproject.com/png/1753447-200.png" alt="WF-Icon" id="logo-image">
         </div>
@@ -33,12 +33,12 @@
             </div>
             
             <div class="right item">
-                 {% comment %} <a href="{% url 'logout' %}"> {% endcomment %}
+                 <a href="{% url 'logout' %}">
                     <h2 id="logout">
                         <i class="sign out icon"></i>
                         Log Out
                     </h2>
-                {% comment %} </a> {% endcomment %}
+                </a>
             </div>
                
             
