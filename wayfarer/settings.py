@@ -129,7 +129,7 @@ MEDIA_URL = ''
 MEDIA_ROOT = os.path.join(BASE_DIR, 'main_app')
 
 # Login Redirect
-LOGIN_REDIRECT_URL = '/users'
+LOGIN_REDIRECT_URL = '/users/'
 
 # Logout Redirect
 LOGOUT_REDIRECT_URL = '/'
