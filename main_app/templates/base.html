@@ -14,25 +14,49 @@
 </head>
 <body>
   <main>
-    <div class="ui menu" id="nav_home">
+    <div class="ui mini menu sticky" id="nav_home">
         <div id="image-box">
             <img src="https://static.thenounproject.com/png/1753447-200.png" alt="WF-Icon" id="logo-image">
         </div>
-        <div class="left item">
-            <h1 id="logo_text">Wayfarer</h1>
+        <div class="left item borderless">
+            <h2 id="logo_text">Wayfarer</h2>
         </div>
         
         {% if user.is_authenticated %}
-            <div class="right item">
-                <a href="{% url 'profile' %}"><h1 id="profile">Profile</h1></a>
-                <a href="{% url 'logout' %}"><h1 id="logout">Log Out</h1></a>
+        <div class="right item borderless">
+            <div class="center">
+                <a href="{% url 'profile' %}">
+                    <h2 id="profile-link">
+                        <i class="user icon"></i>
+                        Profile
+                    </h2>
+                </a>
             </div>
+            <div class="center item borderless">
+                 <a href="{% url 'logout' %}">
+                    <h2 id="logout">
+                        <i class="sign out icon"></i>
+                        Log Out
+                    </h2>
+                </a>
+            </div>
+        </div>
+            
         {% else %}
             <div class="right item">
-                <h1 id="log_in">Log In</h1>
-                <h1 id="sign_up">Sign Up</h1>
-            
+                <h2 id="log_in">
+                    <i class="sign in icon"></i>
+                    Log In
+                </h2>
+                <h2 id="sign_up">
+                    <i class="user plus icon"></i>
+                    Sign Up
+                </h2>
             </div>
+            
+            {% comment %} <div class="right item">
+                
+            </div > {% endcomment %}
         {% endif %}
         
     </div>
@@ -41,6 +65,9 @@
     
   </main>
   <script src="{% static 'flickity/flickity.pkgd.min.js' %}"></script>
+  <script>$('.ui.sticky')
+  .sticky()
+;</script>
     {% comment %} Login Modal {% endcomment %}
     {% include 'registration/login.html' %}
     {% comment %} Signup Modal {% endcomment %}
