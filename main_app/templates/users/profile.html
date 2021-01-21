@@ -10,7 +10,7 @@
             {% endif %}
         </div>
         <div>
-            <h1 class="ui header">{{ user.username }}</h1>
+            <h1 class="ui dividing header">{{ user.username }}</h1>
         </div>
         <div>
             <ul>
@@ -21,15 +21,17 @@
         </div>
     </aside>
     <section class= "ui raised very padded text container segment">
+    <div class= "ui item"> 
         {% for post in posts  %}
             {% include '../partials/posts.html'%}
         {% endfor %}
+    </div>
     </section>
-</div>
  <div class="card-action">
     <a href="{% url 'update_profile' %}" class="edit_btn">
         <button class="ui primary button">Edit</button>
     </a>
+</div>
 </div>
 
 {% endblock %}
