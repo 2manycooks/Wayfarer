@@ -2,7 +2,7 @@
 {% block content %}
 
 
-<div class="ui centered card" id="post-detail" style= 'width: 400px; height: 500px' >
+<div class="ui centered teal card" id="post-detail" style= 'width: 400px; height: 500px' >
   <div class="image">
     {% if post.image %}
         <img src='{{post.image.url}}'/>
@@ -28,7 +28,7 @@
       <i class="compass outline icon"></i>
       {{post.city}}
     </a>
-    <button class="ui button" id="post-delete-button">
+    <button class="ui teal button" id="post-delete-button">
         Delete
     </button>
     <a href="{% url 'edit_post' post.id %}" id="post-edit-button">
@@ -38,7 +38,7 @@
 </div>
 
 <div class="ui modal" id="delete-modal">
-  <div class="header">Are you sure?</div>
+  <div class="header">Are you sure you want to delete {{post.title}}?</div>
   <div class="content">
     <p> This action cannot be undone! </p>
   </div>

@@ -92,4 +92,7 @@ a :hover {
   /* #ui_modal {
       display: none;
   } */
-
+  
+.ui.teal.button,.ui.teal.buttons .button {
+    background-color:#35d0ba;
+}
