@@ -54,6 +54,15 @@ a :hover {
     min-width: 500px;
 }
 
+#post-content {
+    background-color: #35d0ba;
+}
+#user-menu-items::after {
+    border: none;
+}
+#sign-out-container {
+    border: none;
+}
 /* external css: flickity.css */
 
 * {
@@ -84,8 +93,8 @@ a :hover {
     font-size: 80px;
     color: white;
   } */
-  
-  /* #ui_modal {
-      display: none;
-  } */
+
+
+
+
 
