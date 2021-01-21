@@ -7,8 +7,8 @@ from django.contrib.auth.forms import UserCreationForm, forms, UserChangeForm
 class Post_Form(ModelForm):
     class Meta:
       model = Post 
-      labels = {'title': "Post Title"}
-      fields = ['title','content','image']
+      labels = {'title': "Post Title", 'content': ''}
+      fields = ('title','content','image')
 
 class NewUserForm(UserCreationForm):
     email = forms.EmailField(required=True)

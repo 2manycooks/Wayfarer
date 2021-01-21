@@ -220,3 +220,10 @@ dmypy.json
 *.code-workspace
 
 # End of https://www.toptal.com/developers/gitignore/api/django,python,vscode
+
+
+#Image directories so we dont keep uploading test images
+
+main_app/static/images/profile
+main_app/static/images/post
+main_app/static/images/city
