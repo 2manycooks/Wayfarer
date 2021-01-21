@@ -1,13 +1,37 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="container">
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ user_form.as_p }}
-        {{ profile_form.as_p }}
-        <button type="submit">Save changes</button>
-    </form>
+<div class="edit_container">
+    <div class="ui raised very padded text container segment">
+        <div class="ui teal header">
+            <h1>Edit Profile</h1>
+        </div> 
+        <div class="ui divider"></div>
+            <form class="ui form" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                    <div class="field">
+                        <label>User Name</label>
+                        <div class="ui input" >
+                            {{ user_form.username }}
+                        </div>
+                    </div> 
+                    <div class="field">
+                        <label>Current City</label>
+                        <div class="ui input">
+                            {{ profile_form.current_city }}
+                        </div>
+                    </div> 
+                    <div class="field">
+                        <label>Favorite City</label>
+                        <div class="ui input">
+                            {{ profile_form.favorite_city }}
+                        </div>
+                    </div>      
+                   <button type="submit" class="ui teal button">Save changes</button>
+                   <button type="submit" class="ui button"  href="{% url 'profile' %}">Cancel</button> 
+            </form>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
