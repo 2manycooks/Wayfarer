@@ -1,33 +1,37 @@
 {% extends 'base.html' %} {% block content %}
 
-<aside class="profile_sidebar">
-    <div class="profile_image">
-        {% if user.profile.image %}
-            <img src="{{ user.profile.image.url }} " alt="profile_image" width="240"/>
-        {% else %}
-            <img src="/static/images/profile/default_profile.png" alt="default_image" width="240"/>
-        {% endif %}
-    </div>
-    <div>
-        <h1>{{ user.username }}</h1>
-    </div>
-    <div>
-        <ul>
-            <p id="fav_city">Favorite City: {{ user.profile.favorite_city }}<p>
-            <p id="current_city">Current City: {{ user.profile.current_city }}<p>
-            <p id="join_date">Joined {{ user.date_joined }}<p>
-        </ul>
-    </div>
-</aside>
-<section>
-    {% for post in posts  %}
-        {% include '../partials/posts.html'%}
-    {% endfor %}
-</section>
+<div class="ui horizontal borderless segments">
+    <aside class="ui raised very padded fluid container segment">
+        <div class="ui medium rounded image">
+            {% if user.profile.image %}
+                <img src="{{ user.profile.image.url }} " alt="profile_image" width="240"/>
+            {% else %}
+                <img src="/static/images/profile/default_profile.png" alt="default_image" width="240"/>
+            {% endif %}
+        </div>
+        <div>
+            <h1 class="ui dividing header">{{ user.username }}</h1>
+        </div>
+        <div>
+            <ul>
+                <p id="fav_city">Favorite City: {{ user.profile.favorite_city }}<p>
+                <p id="current_city">Current City: {{ user.profile.current_city }}<p>
+                <p id="join_date">Joined {{ user.date_joined }}<p>
+            </ul>
+        </div>
  <div class="card-action">
     <a href="{% url 'update_profile' %}" class="edit_btn">
         <button class="ui primary button">Edit</button>
     </a>
+</div>
+    </aside>
+    <section class= "ui raised very padded text container segment">
+    <div class= "ui item"> 
+        {% for post in posts  %}
+            {% include '../partials/posts.html'%}
+        {% endfor %}
+    </div>
+    </section>
 </div>
 
 {% endblock %}
