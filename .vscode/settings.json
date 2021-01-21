@@ -9,4 +9,5 @@
         "django-html": "html",
         "javascript": "javascriptreact"
       },
+      "python.pythonPath": ".env/bin/python",
 }
