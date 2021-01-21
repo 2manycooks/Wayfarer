@@ -7,7 +7,7 @@
             <h1>Edit Profile</h1>
         </div> 
         <div class="ui divider"></div>
-            <form class="ui form" method="post">
+            <form class="ui form" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                     <div class="field">
                         <label>User Name</label>
