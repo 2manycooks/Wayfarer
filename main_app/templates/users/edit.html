@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="container">
+<div class="edit_container">
     <div class="ui raised very padded text container segment">
         <div class="ui teal header">
             <h1>Edit Profile</h1>
@@ -28,7 +28,7 @@
                         </div>
                     </div>      
                    <button type="submit" class="ui teal button">Save changes</button>
-                <input type="submit"  value="save changes"/> 
+                   <button type="submit" class="ui button"  href="{% url 'profile' %}">Cancel</button> 
             </form>
         </div>
     </div>
