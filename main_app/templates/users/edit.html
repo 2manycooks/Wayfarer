@@ -11,7 +11,7 @@
                 {% csrf_token %}
                     <div class="field">
                         <label>User Name</label>
-                        <div class="ui input" placeholder="">
+                        <div class="ui input" >
                             {{ user_form.username }}
                         </div>
                     </div> 
@@ -26,8 +26,9 @@
                         <div class="ui input">
                             {{ profile_form.favorite_city }}
                         </div>
-                    </div>                    
-                <button class="ui teal button">Save changes</button>
+                    </div>      
+                   <button type="submit" class="ui teal button">Save changes</button>
+                <input type="submit"  value="save changes"/> 
             </form>
         </div>
     </div>
