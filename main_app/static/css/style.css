@@ -57,7 +57,12 @@ a :hover {
 #post-content {
     background-color: #35d0ba;
 }
-
+#user-menu-items::after {
+    border: none;
+}
+#sign-out-container {
+    border: none;
+}
 /* external css: flickity.css */
 
 * {

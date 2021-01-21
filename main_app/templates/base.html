@@ -18,12 +18,13 @@
         <div id="image-box">
             <img src="https://static.thenounproject.com/png/1753447-200.png" alt="WF-Icon" id="logo-image">
         </div>
-        <div class="left item">
+        <div class="left item borderless">
             <h2 id="logo_text">Wayfarer</h2>
         </div>
         
         {% if user.is_authenticated %}
-            <div class="right item">
+        <div class="right item borderless">
+            <div class="center">
                 <a href="{% url 'profile' %}">
                     <h2 id="profile-link">
                         <i class="user icon"></i>
@@ -31,8 +32,7 @@
                     </h2>
                 </a>
             </div>
-            
-            <div class="right item">
+            <div class="center item borderless">
                  <a href="{% url 'logout' %}">
                     <h2 id="logout">
                         <i class="sign out icon"></i>
@@ -40,7 +40,7 @@
                     </h2>
                 </a>
             </div>
-               
+        </div>
             
         {% else %}
             <div class="right item">

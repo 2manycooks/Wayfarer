@@ -20,21 +20,32 @@
         {% endfor %}
     </aside>
     
-        <section class="ui right card">
-            <div>
-                <h1>{{ selected_city.name }}</h1>
-                <h3>{{ selected_city.country }}</h3>
-                <img src="{{ selected_city.image.url }}" alt="" width="300px">
+        <section class="ui center card">
+
+            <div class="ui card segment">
+                <div>
+                    <div>
+                        <h1>{{ selected_city.name }}</h1>
+                        <h3>{{ selected_city.country }}</h3>
+                    </div>
+                    <div>
+                        <img src="{{ selected_city.image.url }}" alt="" width="300px">
+                    </div>
+                </div>
+                <div class="ui card items">
+                    <div class="ui left">
+                        <h1>Posts</h1>
+                    </div>
+                    <div class="ui right">
+                        <h1 class="ui right" id="add-post"><i class='plus circle icon'></i></h1>
+                    </div>
+                </div>
             </div>
-            <div>
-                <h1>Posts</h1>
-                <h1 id="add-post"><i class='plus circle icon'></i></h1>
-                <section>
-                    {% for post in selected_city.posts %}
-                        {% include '../partials/posts.html' %}
-                    {% endfor %}
-                </section>
-            </div>
+            <section class="">
+                {% for post in selected_city.posts %}
+                    {% include '../partials/posts.html' %}
+                {% endfor %}
+            </section>
         </section>
         
         <div class="ui container">
