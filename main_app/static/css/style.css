@@ -1,3 +1,7 @@
+body {
+    margin-top: 6em;
+}
+
 #nav_home {
     background-color: #d92027;
 }
@@ -57,12 +61,31 @@ a :hover {
 #post-content {
     background-color: #35d0ba;
 }
-#user-menu-items::after {
-    border: none;
+
+#city-menu {
+    display: flex;
+    margin-left: 1em;
+    width: 20vw;
+} 
+#city-menu a, #city-menu div{
+    margin: auto .2em;
 }
-#sign-out-container {
-    border: none;
+
+#details-container {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
 }
+.middle-aligned {
+    display: flex;
+    align-content: center;
+}
+
+#city-menu-header {
+    margin-left: 15px;
+}
+
+
 /* external css: flickity.css */
 
 * {
@@ -101,3 +124,13 @@ a :hover {
 .ui.teal.button,.ui.teal.buttons .button {
     background-color:#35d0ba;
 }
+
+.edit_container {
+    display: flex;
+    margin-top: 250px;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+
