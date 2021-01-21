@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 
-<div class="ui horizontal segments">
+<div class="ui horizontal borderless segments">
     <aside class="ui raised very padded fluid container segment">
         <div class="ui medium rounded image">
             {% if user.profile.image %}
@@ -19,6 +19,11 @@
                 <p id="join_date">Joined {{ user.date_joined }}<p>
             </ul>
         </div>
+ <div class="card-action">
+    <a href="{% url 'update_profile' %}" class="edit_btn">
+        <button class="ui primary button">Edit</button>
+    </a>
+</div>
     </aside>
     <section class= "ui raised very padded text container segment">
     <div class= "ui item"> 
@@ -27,11 +32,6 @@
         {% endfor %}
     </div>
     </section>
- <div class="card-action">
-    <a href="{% url 'update_profile' %}" class="edit_btn">
-        <button class="ui primary button">Edit</button>
-    </a>
-</div>
 </div>
 
 {% endblock %}
