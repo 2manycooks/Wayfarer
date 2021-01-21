@@ -1,43 +1,48 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <aside class="ui primary vertical menu">
-        <h1>Cities</h1>
-        {% for city in cities %}
-            {% if city.id == selected_city.id %}
-                <a class="active item" >
-            {% else %}
-                <a class="item" href="{% url 'city_details' city.id %}">
-            {% endif %}
-                {% if city.image %}
-                    <img src="{{ city.image.url }} " alt="city_image" width='100px'/>
+    {% comment %} <aside class="ui vertical menu" id="city-menu">
+        <div class="">
+            <h1>Cities</h1>
+        </div>
+        <div class="ui clearing items">
+            {% for city in cities %}
+                {% if city.id == selected_city.id %}
+                    <a class="active item middle-align" >
                 {% else %}
-                    <img src="/static/images/profile/default-thumbnail.png" alt="default_image" width="240"/>
+                    <a class="item middle-align" href="{% url 'city_details' city.id %}">
                 {% endif %}
-                {% comment %} <img src="{{ city.image.url }}" alt="{{ city.name }}"> {% endcomment %}
-                <p>{{ city.name }} </p>
-            </a>
-        {% endfor %}
+                    <div class="ui left floated middle-align">
+                        {% if city.image %}
+                            <img src="{{ city.image.url }} " alt="city_image" width='100px'/>
+                        {% else %}
+                            <img src="/static/images/profile/default-thumbnail.png" alt="default_image" width="240"/>
+                        {% endif %}
+                    </div>
+                    <div class="ui left floated middle-align">
+                        <p>{{ city.name }} </p>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
     </aside>
-    
-        <section class="ui center card">
-
-            <div class="ui card segment">
-                <div>
-                    <div>
+        <section class="ui right floated container" id="details-container">
+            <div class="ui card fluid">
+                <div class="ui clearing basic segment">
+                    <div class="ui left floated">
                         <h1>{{ selected_city.name }}</h1>
                         <h3>{{ selected_city.country }}</h3>
                     </div>
-                    <div>
+                    <div class="ui right floated">
                         <img src="{{ selected_city.image.url }}" alt="" width="300px">
                     </div>
                 </div>
-                <div class="ui card items">
-                    <div class="ui left">
+                <div class="ui clearing basic segment">
+                    <div class="ui left floated">
                         <h1>Posts</h1>
                     </div>
-                    <div class="ui right">
-                        <h1 class="ui right" id="add-post"><i class='plus circle icon'></i></h1>
+                    <div class="ui right floated">
+                        <h1 id="add-post"><i class='plus circle icon'></i></h1>
                     </div>
                 </div>
             </div>
@@ -46,10 +51,71 @@
                     {% include '../partials/posts.html' %}
                 {% endfor %}
             </section>
-        </section>
+        </section> {% endcomment %}
         
+
+        
+{% comment %} with grid {% endcomment %}
+<div class="ui grid container" id="cities-details">
+    <div class="four wide column">
+        <aside class="ui vertical menu sticky fluid">
+                <h1 class="middle-aligned" id="city-menu-header">Cities</h1>
+                {% for city in cities %}
+                    <div class="ui items">
+                    {% if city.id == selected_city.id %}
+                        <a class="active item" >
+                    {% else %}
+                        <a class="item" href="{% url 'city_details' city.id %}">
+                    {% endif %}
+                            <div class="ui left floated">
+                                {% if city.image %}
+                                    <img src="{{ city.image.url }} " alt="city_image" width='100px'/>
+                                {% else %}
+                                    <img src="/static/images/profile/default-thumbnail.png" alt="default_image" width="240"/>
+                                {% endif %}
+                            </div>
+                            <div class="middle-aligned">
+                                <div class="header middle aligned content">
+                                    {{ city.name }}
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+        </aside>
+    </div>
+    <section class="ui twelve wide column" id="details-container">
+        <div class="ui card fluid">
+            <div class="ui clearing basic segment">
+                <div class="ui left floated">
+                    <h1>{{ selected_city.name }}</h1>
+                    <h3>{{ selected_city.country }}</h3>
+                </div>
+                <div class="ui right floated">
+                    <img src="{{ selected_city.image.url }}" alt="" width="300px">
+                </div>
+            </div>
+            <div class="ui clearing basic segment">
+                <div class="ui left floated">
+                    <h1>Posts</h1>
+                </div>
+                <div class="ui right floated">
+                    <h1 id="add-post"><i class='plus circle icon'></i></h1>
+                </div>
+            </div>
+        </div>
+        <section class="">
+            {% for post in selected_city.posts %}
+                    {% include '../partials/posts.html' %}
+            {% endfor %}
+        </section>
+    </section>
+</div>
+
+
+
         <div class="ui container">
-            <div class="ui modal" id="new_post">
+            <div class="ui tiny modal" id="new_post">
                 <i class="close icon"></i>
                 {% block error %} 
                     
@@ -57,11 +123,32 @@
                     <div class ="header">
                         New Post
                     </div> 
-                    <div class="form">
-                        <form enctype="multipart/form-data" action="{% url 'post_create' selected_city.id %}" method='POST'>
+                    <div class="content">
+                        <form class="ui form" enctype="multipart/form-data" action="{% url 'post_create' selected_city.id %}" method='POST'>
                         {% csrf_token %}
-                        {{ post_form.as_p }}
-                        <input type="submit" value="Post" class="btn">
+                        {% comment %} {{ post_form.as_p }} {% endcomment %}
+                        <div class="field">
+                            <label>Title</label>
+                                <div class="ui input">
+                                    {{ post_form.title }}
+                                </div>
+                        </div>                                   
+                        <div class="field">
+                            <label>Post</label>
+                                <div class="ui input">
+                                    {{ post_form.content }}
+                                </div>
+                        </div>                          
+                        <div class="field">
+                            <label>Image</label>
+                                <div class="ui left icon input">
+                                    {{ post_form.image }}
+                                    <i class="upload icon"></i>
+                                </div>
+                        </div>
+
+                        <input class="ui teal button" type="submit" value="Post" class="btn">
+                        
                         </form>
                     </div>
             </div>
@@ -73,7 +160,9 @@
         $('#new_post').modal('show');    
      });
      });
-     </script>
+    $('.ui.sticky')
+  .sticky({offset: 123, context: "#details-container"})
+;</script>
 {% endblock  %}
 
 
