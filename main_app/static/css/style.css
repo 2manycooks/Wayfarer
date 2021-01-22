@@ -87,9 +87,6 @@ a :hover, :active :focus {
     min-width: 500px;
 }
 
-#post-content {
-    background-color: #35d0ba;
-}
 
 #city-menu {
     display: flex;
@@ -109,4 +106,50 @@ a :hover, :active :focus {
 
 #city-menu-header {
     margin-left: 15px;
+}
+
+#city-menu-aside {
+    border-radius: 5px;
+}
+.ui.secondary.menu .item.border-control {
+    border-radius: 5px !important;
+
+}
+
+.ui.secondary.menu .item.border-control:hover {
+    border-radius: 5px !important;
+    background-color: #ffcd3c;
+    text-decoration: none !important;
+    color: black !important;
+}
+
+.ui.secondary.menu .active.item {
+    background-color: #ff9234;
+    border-radius: 5px !important;
+}
+
+.ui.secondary.menu .active.item:hover {
+    background-color: #ff9234;
+    border-radius: 5px !important;
+    text-decoration: none  !important;
+    color: black  !important;
+}
+
+#log-in:hover {
+    cursor: pointer !important;
+    text-decoration: underline !important;
+}
+
+
+
+#add-post {
+    color: #ff9234;
+}
+
+#post-delete-button {
+    background-color: #ffcd3c;
+}
+
+#underbar {
+    background-color: #ff9234;
 }
