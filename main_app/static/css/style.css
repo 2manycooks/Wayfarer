@@ -87,9 +87,6 @@ a :hover, :active :focus {
     min-width: 500px;
 }
 
-#post-content {
-    background-color: #35d0ba;
-}
 
 #city-menu {
     display: flex;
@@ -149,3 +146,10 @@ a :hover, :active :focus {
     color: #ff9234;
 }
 
+#post-delete-button {
+    background-color: #ffcd3c;
+}
+
+#underbar {
+    background-color: #ff9234;
+}

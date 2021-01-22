@@ -2,16 +2,12 @@
 https://flickity.metafizzy.co
 ---------------------------------------------- */
 
-.flickity-enabled {
-  position: relative;
-}
 
 .flickity-enabled:focus { outline: none; }
 
 .flickity-viewport {
   overflow: hidden;
   position: relative;
-  height: 100%;
 }
 
 .flickity-slider {
@@ -109,14 +105,16 @@ https://flickity.metafizzy.co
 /* ---- page dots ---- */
 
 .flickity-page-dots {
-  position: absolute;
+  /* position: absolute;
   width: 100%;
   bottom: -25px;
   padding: 0;
   margin: 0;
   list-style: none;
   text-align: center;
-  line-height: 1;
+  line-height: 1; */
+  display:none !important;
+
 }
 
 .flickity-rtl .flickity-page-dots { direction: rtl; }
@@ -137,26 +135,38 @@ https://flickity.metafizzy.co
 }
 
 .carousel {
-  background: #EEE;
+  background: #ff9234;
+}
+
+.carousel .flickity-viewport {
+  position: absolute;
+  width: 100%;
+
 }
 
 .carousel-cell {
-  width: 100vw; 
+  width: 100%; 
+  height: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
 } 
 
+.carousel.is-fullscreen .carousel-cell {
+  height: 100%;
+  width: 100%;
+}
+
 /* .carousel img {
   display: block;
-  height: 200px;
+  height: 600px;
+  width: 100%;
 } */
 
-
-@media screen and ( min-width: 768px ) {
+/* @media screen and ( min-width: 768px ) {
   .carousel img {
     height: 400px;
     z-index: 2;
   }
 }
-
+ */
