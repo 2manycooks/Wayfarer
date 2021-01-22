@@ -1,0 +1,136 @@
+body {
+    margin-top: 6em;
+}
+
+#nav_home {
+    background-color: #d92027;
+}
+
+#logo_text{
+    margin: 20px;
+    display: inline;
+}
+
+#sign_up {
+    margin: 0 auto;
+    margin-right: 10px;
+    display: inline;
+}
+
+#log_in {
+    margin: 0 auto;
+    margin-right: 10px;
+    display: inline;
+}
+
+#profile {
+    margin: 0 auto;
+    margin-right: 10px;
+    display: inline;
+}
+
+#logout {
+    margin: 0 auto;
+    margin-right: 10px;
+    display: inline;
+}
+
+a {
+    color: inherit;
+}
+
+a :hover {
+    text-decoration: underline;
+    color: inherit;
+}
+
+#logo-image {
+    height: 75px;
+}
+
+#image-box {
+    border-color: #ff9234;
+    border-width: thin;
+}
+
+#post-detail {
+    display: flex;
+    min-width: 500px;
+}
+
+#post-content {
+    background-color: #35d0ba;
+}
+
+#city-menu {
+    display: flex;
+    margin-left: 1em;
+    width: 20vw;
+} 
+#city-menu a, #city-menu div{
+    margin: auto .2em;
+}
+
+#details-container {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+}
+.middle-aligned {
+    display: flex;
+    align-content: center;
+}
+
+#city-menu-header {
+    margin-left: 15px;
+}
+
+
+/* external css: flickity.css */
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+ /*  body { font-family: sans-serif; }
+  
+  .gallery {
+    background: #EEE;
+  }
+  
+  .gallery-cell {
+    width: 66%;
+    height: 200px;
+    margin-right: 10px;
+    background: #8C8;
+    counter-increment: gallery-cell;
+  }
+  
+  /* cell number */
+  /* .gallery-cell:before {
+    display: block;
+    text-align: center;
+    content: counter(gallery-cell);
+    line-height: 200px;
+    font-size: 80px;
+    color: white;
+  } */
+  
+  /* #ui_modal {
+      display: none;
+  } */
+  
+.ui.teal.button,.ui.teal.buttons .button {
+    background-color:#35d0ba;
+}
+
+.edit_container {
+    display: flex;
+    margin-top: 250px;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+

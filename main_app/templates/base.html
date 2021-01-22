@@ -19,7 +19,9 @@
             <img src="https://static.thenounproject.com/png/1753447-200.png" alt="WF-Icon" id="logo-image">
         </div>
         <div class="left item borderless">
-            <h2 id="logo_text">Wayfarer</h2>
+            <a href="{% url 'home' %}">
+                <h2 id="logo_text">Wayfarer</h2>
+            </a>
         </div>
         
         {% if user.is_authenticated %}
