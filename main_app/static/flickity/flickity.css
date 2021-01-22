@@ -2,9 +2,6 @@
 https://flickity.metafizzy.co
 ---------------------------------------------- */
 
-.flickity-enabled {
-  position: relative;
-}
 
 .flickity-enabled:focus { outline: none; }
 
@@ -145,7 +142,6 @@ https://flickity.metafizzy.co
 
 }
 
-
 .carousel-cell {
   width: 100%; 
   height: 600px;
@@ -164,7 +160,6 @@ https://flickity.metafizzy.co
   height: 600px;
   width: 100%;
 } */
-
 
 /* @media screen and ( min-width: 768px ) {
   .carousel img {
