@@ -1,81 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    {% comment %} <aside class="ui vertical menu" id="city-menu">
-        <div class="">
-            <h1>Cities</h1>
-        </div>
-        <div class="ui clearing items">
-            {% for city in cities %}
-                {% if city.id == selected_city.id %}
-                    <a class="active item middle-align" >
-                {% else %}
-                    <a class="item middle-align" href="{% url 'city_details' city.id %}">
-                {% endif %}
-                    <div class="ui left floated middle-align">
-                        {% if city.image %}
-                            <img src="{{ city.image.url }} " alt="city_image" width='100px'/>
-                        {% else %}
-                            <img src="/static/images/profile/default-thumbnail.png" alt="default_image" width="240"/>
-                        {% endif %}
-                    </div>
-                    <div class="ui left floated middle-align">
-                        <p>{{ city.name }} </p>
-                    </div>
-                </a>
-            {% endfor %}
-        </div>
-    </aside>
-        <section class="ui right floated container" id="details-container">
-            <div class="ui card fluid">
-                <div class="ui clearing basic segment">
-                    <div class="ui left floated">
-                        <h1>{{ selected_city.name }}</h1>
-                        <h3>{{ selected_city.country }}</h3>
-                    </div>
-                    <div class="ui right floated">
-                        <img src="{{ selected_city.image.url }}" alt="" width="300px">
-                    </div>
-                </div>
-                <div class="ui clearing basic segment">
-                    <div class="ui left floated">
-                        <h1>Posts</h1>
-                    </div>
-                    <div class="ui right floated">
-                        <h1 id="add-post"><i class='plus circle icon'></i></h1>
-                    </div>
-                </div>
-            </div>
-            <section class="">
-                {% for post in selected_city.posts %}
-                    {% include '../partials/posts.html' %}
-                {% endfor %}
-            </section>
-        </section> {% endcomment %}
-        
 
-        
-{% comment %} with grid {% endcomment %}
 <div class="ui grid container" id="cities-details">
     <div class="four wide column">
-        <aside class="ui vertical menu sticky fluid">
-                <h1 class="middle-aligned" id="city-menu-header">Cities</h1>
+        <aside class="ui secondary vertical menu sticky fluid" id="city-menu-aside">
+                <h1 id="city-menu-header">Cities</h1>
                 {% for city in cities %}
                     <div class="ui items">
                     {% if city.id == selected_city.id %}
                         <a class="active item" >
                     {% else %}
-                        <a class="item" href="{% url 'city_details' city.id %}">
+                        <a class="item border-control" href="{% url 'city_details' city.id %}">
                     {% endif %}
-                            <div class="ui left floated">
+                            <div class="ui content">
                                 {% if city.image %}
                                     <img src="{{ city.image.url }}" alt="city_image" width='100px'/>
                                 {% else %}
                                     <img src="/static/images/profile/default-thumbnail.png" alt="default_image" width="240"/>
                                 {% endif %}
-                            </div>
-                            <div class="middle-aligned">
-                                <div class="header middle aligned content">
+                                <div class="header">
                                     {{ city.name }}
                                 </div>
                             </div>
@@ -85,7 +29,7 @@
         </aside>
     </div>
     <section class="ui twelve wide column" id="details-container">
-        <div class="ui card fluid">
+        <div class="ui orange card fluid">
             <div class="ui clearing basic segment">
                 <div class="ui left floated">
                     <h1>{{ selected_city.name }}</h1>
@@ -103,7 +47,7 @@
                 <div class="ui left floated">
                     <h1>Posts</h1>
                 </div>
-                <div class="ui right floated">
+                <div class="ui right floated" id="add-post">
                     <h1 id="add-post"><i class='plus circle icon'></i></h1>
                 </div>
             </div>
