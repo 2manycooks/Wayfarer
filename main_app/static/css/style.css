@@ -1,14 +1,55 @@
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+* :hover, * :active :focus {
+    color: black;
+    outline-color: transparent;
+}
+
 body {
     margin-top: 6em;
+}
+
+a {
+    color: black;
+    background-color: inherit;
+}
+
+a :hover, :active :focus {
+    text-decoration: underline;
+    color: black;
+    outline-color: black;
+}
+
+.ui.teal.button,.ui.teal.buttons .button {
+    background-color:#35d0ba;
+}
+
+.edit_container {
+    display: flex;
+    margin-top: 250px;
+    justify-content: center;
+    align-items: center;
+}
+
+.middle-aligned {
+    display: flex;
+    align-content: center;
 }
 
 #nav_home {
     background-color: #d92027;
 }
 
+#logo-image {
+    height: 75px;
+}
+
 #logo_text{
     margin: 20px;
     display: inline;
+    color: black;
 }
 
 #sign_up {
@@ -33,19 +74,7 @@ body {
     margin: 0 auto;
     margin-right: 10px;
     display: inline;
-}
-
-a {
-    color: inherit;
-}
-
-a :hover {
-    text-decoration: underline;
-    color: inherit;
-}
-
-#logo-image {
-    height: 75px;
+    color: black;
 }
 
 #image-box {
@@ -66,7 +95,8 @@ a :hover {
     display: flex;
     margin-left: 1em;
     width: 20vw;
-} 
+}
+
 #city-menu a, #city-menu div{
     margin: auto .2em;
 }
@@ -76,53 +106,7 @@ a :hover {
     flex-direction: column;
     width: 50vw;
 }
-.middle-aligned {
-    display: flex;
-    align-content: center;
-}
 
 #city-menu-header {
     margin-left: 15px;
-}
-
-
-/* external css: flickity.css */
-
-* {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-  
- /*  body { font-family: sans-serif; }
-  
-  .gallery {
-    background: #EEE;
-  }
-  
-  .gallery-cell {
-    width: 66%;
-    height: 200px;
-    margin-right: 10px;
-    background: #8C8;
-    counter-increment: gallery-cell;
-  }
-  
-  /* cell number */
-  /* .gallery-cell:before {
-    display: block;
-    text-align: center;
-    content: counter(gallery-cell);
-    line-height: 200px;
-    font-size: 80px;
-    color: white;
-  } */
-
-.edit_container {
-    display: flex;
-    margin-top: 250px;
-    justify-content: center;
-    align-items: center;
-  }
-
-
 
