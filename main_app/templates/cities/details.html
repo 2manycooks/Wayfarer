@@ -69,7 +69,7 @@
                     {% endif %}
                             <div class="ui left floated">
                                 {% if city.image %}
-                                    <img src="{{ city.image.url }} " alt="city_image" width='100px'/>
+                                    <img src="{{ city.image.url }}" alt="city_image" width='100px'/>
                                 {% else %}
                                     <img src="/static/images/profile/default-thumbnail.png" alt="default_image" width="240"/>
                                 {% endif %}
@@ -92,7 +92,11 @@
                     <h3>{{ selected_city.country }}</h3>
                 </div>
                 <div class="ui right floated">
-                    <img src="{{ selected_city.image.url }}" alt="" width="300px">
+                    {% if selected_city.image %}
+                        <img src="{{ selected_city.image.url }}" alt="city_image" width='300px'/>
+                    {% else %}
+                        <img src="/static/images/profile/default-thumbnail.png" alt="default_image" width="300px"/>
+                    {% endif %}
                 </div>
             </div>
             <div class="ui clearing basic segment">
