@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Wayfarer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity-fullscreen@1/fullscreen.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
@@ -18,12 +19,21 @@
         <div id="image-box">
             <img src="https://static.thenounproject.com/png/1753447-200.png" alt="WF-Icon" id="logo-image">
         </div>
-        <div class="left item borderless">
+        <div class="left item">
             <a href="{% url 'home' %}">
                 <h2 id="logo_text">Wayfarer</h2>
             </a>
+            <a href="cities/1">
+                <h2 id="city_link">Cities</h2>
+            </a>
         </div>
+        <div class="left item borderless">
+            {% comment %} <a href="cities/1">
+                <h2 id="city_link">Cities</h2>
+            </a> {% endcomment %}
         
+        </div>
+
         {% if user.is_authenticated %}
         <div class="right item borderless">
             <div class="center">
