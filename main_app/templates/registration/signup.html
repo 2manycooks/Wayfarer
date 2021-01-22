@@ -5,11 +5,12 @@
                     <div class ="header">
                         <h2>Signup</h2> 
                     </div> 
-                    {% if error %}
-                      <p style="background-color: firebrick;">{{error}}</p>
-                    {% endif %}
                     <div class="content">
-
+                        {% if signup_error_message %}
+                            <div class="ui red message">
+                                <p>{{signup_error_message}}</p>
+                            </div>
+                        {% endif %}
                         <form class="ui form" method="POST" action="{% url 'signup' %}" class="form">
                             {% csrf_token %} 
                             <div class="field">
@@ -51,6 +52,7 @@
      $('#sign_up').click(function(){
         $('#signup_modal').modal('show');    
      });
+     if('{{signup_error_message}}') $('#signup_modal').modal('show');
      });
      </script>
 </body>
