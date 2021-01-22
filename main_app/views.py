@@ -48,7 +48,7 @@ def update_profile(request):
 def signup(request):
     error_message = ''
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
+        form = NewUserForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
@@ -56,45 +56,24 @@ def signup(request):
         else:
             error_message = 'Invalid sign up - try again'
     # A GET or bad POST request, renders empty form
-    form = UserCreationForm()
-    context = {'form': form, 'error_message': error_message}
-    return redirect(request, 'home', context)
+    form = NewUserForm()
+    context = {'signup_form': form, 'error_message': error_message}
+    return render(request, 'home.html', {'signup_error_message': error_message})
 
-def login_failure(request):
+def login_view(request):
     if request.method == 'POST':
+        error_message = ''
         form = AuthenticationForm(request=request,data=request.POST)
         if form.is_valid():
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
             user = authenticate(username=username,password=password)
-            if user is not None:
-                login(request, user)
-                messages.info(request, f"You are now logged in as {username}")
-                return redirect('/users')
-            else:
-                # redirect('/login_failure')
-                return messages.error(request, "Invalid username or password.")
+            login(request, user)
+            return redirect('/users/')
         else:
-            # redirect('/login_failure')
-            return messages.error(request, "Invalid username or password.")
-    form = AuthenticationForm()
-    return render(request = request,
-                  template_name = "registration/login_failure.html",
-                  context={'form': form})
-# def users_edit(request):
-#     # get request vs post request
-#     # post
-#     if request.method == 'POST':
-#         form = EditProfileForm(request.POST, instance=request.user)
+            error_message = 'Username and Password mismatch. Please try again.'
+    return render(request, 'home.html', {'login_error_message': error_message})
 
-#         if form.is_valid():
-#             form.save()
-#             return redirect('/users')
-#     # get method   
-#     else:
-#         form = EditProfileForm(instance=request.user)
-#         context = { 'form': form }
-#         return render(request, 'users/edit.html', context)
 
 def show_post(request, post_id):
     post = Post.objects.get(id=post_id)
