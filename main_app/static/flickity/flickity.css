@@ -105,14 +105,16 @@ https://flickity.metafizzy.co
 /* ---- page dots ---- */
 
 .flickity-page-dots {
-  position: absolute;
+  /* position: absolute;
   width: 100%;
   bottom: -25px;
   padding: 0;
   margin: 0;
   list-style: none;
   text-align: center;
-  line-height: 1;
+  line-height: 1; */
+  display:none !important;
+
 }
 
 .flickity-rtl .flickity-page-dots { direction: rtl; }
