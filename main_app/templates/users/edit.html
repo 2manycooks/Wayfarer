@@ -27,6 +27,12 @@
                             {{ profile_form.favorite_city }}
                         </div>
                     </div>      
+                    <div class="field">
+                        <label>Profile Photo</label>
+                        <div class="ui input">
+                            {{ profile_form.image }}
+                        </div>
+                    </div>   
                    <button type="submit" class="ui teal button">Save changes</button>
                    <button type="submit" class="ui button"  href="{% url 'profile' %}">Cancel</button> 
             </form>
