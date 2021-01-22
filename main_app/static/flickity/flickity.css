@@ -146,10 +146,6 @@ https://flickity.metafizzy.co
   height: 600px;
 }
 
-.carousel img {
-  height: 600px;
-  width: 100vw;
-}
 
 .carousel-cell {
   width: 100%; 
@@ -164,11 +160,11 @@ https://flickity.metafizzy.co
   width: 100%;
 }
 
-.carousel img {
+/* .carousel img {
   display: block;
   height: 600px;
   width: 100%;
-}
+} */
 
 
 /* @media screen and ( min-width: 768px ) {
