@@ -2,7 +2,7 @@
 {% block content %}
 
 
-<div class="ui centered teal card" id="post-detail" style= 'width: 400px; height: 500px' >
+<div class="ui centered card" id="post-detail" style= 'width: 400px; height: 500px' >
   <div class="image">
     {% if post.image %}
         <img src='{{post.image.url}}'/>
@@ -23,17 +23,23 @@
         <p>{{post.content}}</p>
     </div>
   </div>
-  <div class="extra content">
-    <a>
-      <i class="compass outline icon"></i>
-      {{post.city}}
-    </a>
-    <button class="ui teal button" id="post-delete-button">
+  <div class="extra content" id= "underbar">
+    <span>
+      <a>
+        <i class="compass outline icon"></i>
+        {{post.city}}
+      </a>
+    </span>
+    <span>
+    <button class="ui button" id="post-delete-button">
         Delete
     </button>
-    <a href="{% url 'edit_post' post.id %}" id="post-edit-button">
+    </span>
+    <span>
+    <a href="{% url 'edit_post' post.id %}" class="ui teal button" id="post-edit-button">
         Edit
     </a>
+    </span>
   </div>
 </div>
 
