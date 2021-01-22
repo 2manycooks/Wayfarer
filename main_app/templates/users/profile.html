@@ -1,37 +1,43 @@
 {% extends 'base.html' %} {% block content %}
-
-<div class="ui horizontal borderless segments">
-    <aside class="ui raised very padded fluid container segment">
-        <div class="ui medium rounded image">
-            {% if user.profile.image %}
-                <img src="{{ user.profile.image.url }} " alt="profile_image" width="240"/>
-            {% else %}
-                <img src="/static/images/profile/default_profile.png" alt="default_image" width="240"/>
-            {% endif %}
+<div class="ui grid container">
+    <div class="five wide column">
+        <div class="ui sticky horizontal borderless segments">
+            <aside class="ui raised center aligned padded fluid container segment" id="profile-container">
+                <div class="ui rounded image">
+                    {% if user.profile.image %}
+                        <img src="{{ user.profile.image.url }} " alt="profile_image" width="240"/>
+                    {% else %}
+                        <img src="/static/images/profile/default_profile.png" alt="default_image" width="240"/>
+                    {% endif %}
+                </div>
+                <div>
+                    <h1 class="ui dividing header">{{ user.username }}</h1>
+                </div>
+                <div>
+                    <p id="fav_city">Favorite City: {{ user.profile.favorite_city }}<p>
+                    <p id="current_city">Current City: {{ user.profile.current_city }}<p>
+                    <p id="join_date">Joined {{ user.date_joined }}<p>
+                </div>
+                <div class="card-action">
+                    <a href="{% url 'update_profile' %}" class="edit_btn">
+                        <button class="ui primary button">Edit</button>
+                    </a>
+                </div>
+            </aside>
         </div>
-        <div>
-            <h1 class="ui dividing header">{{ user.username }}</h1>
-        </div>
-        <div>
-            <ul>
-                <p id="fav_city">Favorite City: {{ user.profile.favorite_city }}<p>
-                <p id="current_city">Current City: {{ user.profile.current_city }}<p>
-                <p id="join_date">Joined {{ user.date_joined }}<p>
-            </ul>
-        </div>
- <div class="card-action">
-    <a href="{% url 'update_profile' %}" class="edit_btn">
-        <button class="ui primary button">Edit</button>
-    </a>
-</div>
-    </aside>
-    <section class= "ui raised very padded text container segment">
-    <div class= "ui item"> 
-        {% for post in posts  %}
-            {% include '../partials/posts.html'%}
-        {% endfor %}
     </div>
-    </section>
+    <div class="ui eleven wide column" id="posts-container">
+        <section class= "ui raised">
+            <div class= "ui item"> 
+                {% for post in posts  %}
+                    {% include '../partials/posts.html'%}
+                {% endfor %}
+            </div>
+        </section>
+    </div>
 </div>
-
+<script type="text/javascript">
+    $('.ui.sticky')
+  .sticky({offset: 123, context: "#posts-container"})
+;</script>
 {% endblock %}
