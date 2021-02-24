@@ -20,7 +20,7 @@ class NewUserForm(UserCreationForm):
         user.email = self.cleaned_data["email"]
         if commit:
             user.save()
-        return user, user_profile
+        return user
       
 class UserForm(forms.ModelForm):
     class Meta:
@@ -31,4 +31,3 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ('current_city', 'favorite_city', 'image')
-        
